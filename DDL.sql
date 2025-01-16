@@ -1,3 +1,5 @@
+-- Base de Datos Consecionario
+
 create type Estado_Vehiculo as enum ('Usado',
 'Nuevo', 'Vendido');
 

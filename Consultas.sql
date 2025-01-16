@@ -4,15 +4,15 @@ select marca,modelo,anio as "Año",precio,estado from vehiculo v where V.estado 
 
 -- Clientes con Compras Recientes: Mostrar los clientes que han realizado compras recientemente, junto con la información de los vehículos adquiridos.
 
-select * from cliente c join venta v on c.id = v.idcliente join vehiculo v2 on v.idvehiculo = v2.id where v.fechadeventa >= current_date - interval '1 month';
+select nombrecompleto,fechadeventa,marca,modelo,anio as "Año",precio,estado from cliente c join venta v on c.id = v.idcliente join vehiculo v2 on v.idvehiculo = v2.id where v.fechadeventa >= current_date - interval '1 month';
 
 -- Historial de Servicios por Vehículo: Obtener el historial completo de servicios realizados para un vehículo específico, incluyendo detalles sobre los empleados involucrados y las fechas de servicio.
 
-select * from servicio s join vehiculo v on s.idvehiculo = v.id join empleadoxservicio e on e.idservicio = s.id join empleado e2 on e.idempleado = e2.id;
+select s.id as "Id Servicio", tipo,fechadeservicio,marca,modelo,anio as "Año",estado,nombrecompleto as "Empleado",fechadecontratacion,fechadenacimiento,identificacion,rol from servicio s join vehiculo v on s.idvehiculo = v.id join empleadoxservicio e on e.idservicio = s.id join empleado e2 on e.idempleado = e2.id;
 
 -- Proveedores de Piezas Utilizados: Listar los proveedores de piezas que han suministrado componentes utilizados en los servicios de mantenimiento.
 
-select * from pieza p join proveedor p2 on p.idproveedor = p2.id join piezaxservicio p3 on p.id = p3.idpieza;
+select p.nombre as "Nombre Pieza",stock,p2.nombre as "Proveedor Nombre",cantidadutilizada from pieza p join proveedor p2 on p.idproveedor = p2.id join piezaxservicio p3 on p.id = p3.idpieza;
 
 -- Rendimiento del Personal de Ventas: Calcular las comisiones generadas por cada empleado del departamento de ventas en un período específico.
 

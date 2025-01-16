@@ -11,7 +11,8 @@ insert into empleado  (nombrecompleto,fechadecontratacion,fechadenacimiento,iden
 insert into Vehiculo (marca,modelo,anio,precio,estado) values
 ('Chevrolet', 'Frontrunner', 2016, 200000000, 'Nuevo'),
 ('Chevrolet', 'Bagger', 2020, 100000000, 'Vendido'),
-('Chevrolet', 'Bagger', 2010, 50000000, 'Usado');
+('Chevrolet', 'Bagger', 2010, 50000000, 'Usado'),
+('Chevrolet', 'Frontrunner', 2020, 85000000, 'Vendido');
 
 insert into Cliente (nombrecompleto,fechadenacimiento,identificacion,email,tipo) values
 ('Nicolas Martinez', '2024-09-07', '1234567894','nico@gmail.com', 'Actual'),
@@ -23,7 +24,8 @@ insert into InteresVehiculo(idcliente,idvehiculo) values
 (3,1);
 
 insert into Venta(idcliente,idvehiculo,idempleado) values
-(1,2,2);
+(1,2,2),
+(1,4,3);
 
 insert into Servicio(tipo,fechadeservicio,idvehiculo) values
 ('Mantenimiento', '2025-01-14 08:00:00', 3);

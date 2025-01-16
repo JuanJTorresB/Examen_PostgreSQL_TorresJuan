@@ -1,5 +1,5 @@
 create type Estado_Vehiculo as enum ('Usado',
-'Nuevo');
+'Nuevo', 'Vendido');
 
 create type Tipo_Cliente as enum ('Actual',
 'Potencial');
@@ -54,7 +54,7 @@ create table InteresVehiculo(
 
 create table Venta(
 	id SERIAL primary key,
-	fechaDeVenta DATE,
+	fechaDeVenta DATE default (CURRENT_DATE),
 	idCliente INT ,
 	idVehiculo INT ,
 	idEmpleado INT ,
@@ -108,3 +108,9 @@ create table HistorialPiezas(
 	idPieza INT,
 	foreign key (idPieza) references Pieza(id)
 );
+
+ALTER TABLE public.empleado ADD horariodeinicio time;
+
+ALTER TABLE public.empleado ADD horariodefin time;
+
+ALTER TABLE public.historialpiezas ADD fechadecompra date;
